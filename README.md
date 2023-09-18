@@ -38,7 +38,6 @@ Before deploying or running your Django project, make sure to perform the follow
   stylesheets.
 - [ ] Run `isort .` in project root to automatically format and organize Python imports.
 - [ ] Run `ruff check . --fix` in project root to automatically lint all files.
-- [ ] Run `python manage.py`
 - [ ] Run `poetry export --format requirements.txt --output requirements/requirements-prod.txt --without-hashes` to
   create requirements file for production.
 - [ ] Run `poetry export --format requirements.txt --output requirements/requirements-dev.txt --without-hashes --dev` to

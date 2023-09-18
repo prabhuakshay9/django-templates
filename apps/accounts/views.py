@@ -3,7 +3,7 @@ from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import never_cache
-
+from django.contrib import messages
 from apps.accounts.forms import CustomPasswordChangeForm, LoginForm
 
 
@@ -17,6 +17,11 @@ class CustomLoginView(LoginView):
     """ Custom login View """
     template_name = 'accounts/login.html'
     form_class = LoginForm
+
+    def form_valid(self, form):
+        user = form.get_user()
+        messages.success(self.request, f'Logged in as {user.email}')
+        return super().form_valid(form)
 
 
 class CustomPasswordChangeView(PasswordChangeView):

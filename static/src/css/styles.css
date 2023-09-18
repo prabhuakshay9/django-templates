@@ -25,3 +25,23 @@
 .sidebar-sublinks {
     @apply hover:bg-gray-100 rounded w-full py-1 px-3 hover:text-indigo-700 text-gray-600 hover:cursor-pointer
 }
+
+.alert {
+    @apply px-3 py-2 mx-auto mb-3 drop-shadow border rounded
+}
+
+.alert-green {
+    @apply bg-green-100 text-green-700 border-green-200
+}
+
+.alert-red {
+    @apply bg-red-100 text-red-700 border-red-200
+}
+
+.alert-amber {
+    @apply bg-amber-100 text-amber-700 border-amber-200
+}
+
+.alert-indigo {
+    @apply bg-indigo-100 text-indigo-700 border-indigo-200
+}
