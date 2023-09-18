@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+    @apply inline-block rounded border border-indigo-600 bg-indigo-600 px-8 py-2 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 hover:cursor-pointer
+}
+
+.asteriskField {
+    display: none
+}
+
+.pl-64-custom {
+    @apply pl-64
+}
+
+.link {
+    @apply hover:text-indigo-700
+}
+
+.sidebar-links {
+    @apply hover:bg-gray-100 rounded w-full my-1 py-2 px-3 hover:text-indigo-700 text-gray-600 hover:cursor-pointer
+}
+
+.sidebar-sublinks {
+    @apply hover:bg-gray-100 rounded w-full py-1 px-3 hover:text-indigo-700 text-gray-600 hover:cursor-pointer
+}

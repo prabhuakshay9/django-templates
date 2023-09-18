@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {# Load template tags #}
+    {% load static %}
+    {% load tailwind_filters %}
+    {% load crispy_forms_tags %}
+
+    {# Meta tags #}
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {# Load static files #}
+    <link rel="stylesheet" href="{% static 'css/tailwind.css' %}">
+
+    {# Icons and Title #}
+    <link rel="icon" href="{% static 'images/logo.png' %}">
+    <title>Login - {{ WEBSITE_NAME }}</title>
+</head>
+<body class="bg-gray-100 max-w-screen h-screen w-screen flex justify-center">
+<div class="mt-32">
+    {% if request.user.is_authenticated %}
+        <div class="bg-red-200 text-red-800 px-6 py-2 border text-red-700 drop-shadow">
+            <strong>Oops!</strong> Looks like you are already logged in. Click <a href="{% url 'core:index' %}"
+                                                                                  class="underline"><strong>here</strong></a>
+            to go back.
+        </div>
+    {% else %}
+        <div class="bg-white p-6 drop-shadow w-11/12 sm:w-96">
+            <div class="text-2xl font-semibold text-gray-600">Login</div>
+            <hr class="mt-2 mb-4">
+            {% crispy form %}
+        </div>
+    {% endif %}
+</div>
+</body>
+</html>

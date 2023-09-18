@@ -1,0 +1,48 @@
+<div x-show="sidebarOpen" class="bg-white h-screen w-72 overflow-y-scroll fixed z-50" @click.away="sidebarOpen = false">
+
+    {# Main Sidebar Section #}
+    <div class="mb-12 px-2">
+
+        {# Home Link #}
+        <a href="{% url 'core:index' %}"
+           class="sidebar-links block">Home</a>
+
+        {# Seperator #}
+        <hr class="border-gray-300">
+
+        {# Accounts Section #}
+        <div x-data="{open: false}">
+            {# Dropdown Section #}
+            <div class="flex items-center sidebar-links" :class="{'bg-slate-100': open}" @click="open=!open">
+                <span class="">
+                    Accounts
+                </span>
+                <span class="grow"></span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-caret-down block" viewBox="0 0 16 16" x-show="!open">
+                    <path d="M3.204 5.296a.75.75 0 0 1 1.06 0L8 9.94l3.736-4.645a.75.75 0 1 1 1.12.98l-4.5 5.6a.75.75 0 0 1-1.12 0l-4.5-5.6a.75.75 0 0 1 0-.98z">
+                    </path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-caret-up block" viewBox="0 0 16 16" x-show="open">
+                    <path d="M12.736 10.645a.75.75 0 0 1-1.06 0L8 6.06 4.324 10.645a.75.75 0 1 1-1.12-.98l4.5-5.6a.75.75 0 0 1 1.12 0l4.5 5.6a.75.75 0 0 1 0 .98z">
+                    </path>
+                </svg>
+
+            </div>
+            {# Menu Section #}
+            <div x-show="open" class="pl-3">
+                <a href="{% url 'accounts:change-password' %}" class="sidebar-sublinks block">Change Password</a>
+                <a href="{% url 'accounts:logout' %}" class="sidebar-sublinks block">Logout</a>
+            </div>
+        </div>
+
+    </div>
+
+    {# Email #}
+    <dib class="fixed bottom-0 left-0 bg-slate-50 border-t border-slate-300 py-2 w-72 px-5">
+        {{ request.user.email }}
+    </dib>
+</div>
+<div class="w-screen h-screen z-40 fixed bg-gray-800 opacity-25" x-show="sidebarOpen">
+</div>

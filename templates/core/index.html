@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <div class="bg-white p-4 drop-shadow rounded">
+        Logged in as: <strong>{{ request.user.email }}</strong>
+        <div class="text-xs mt-2 text-gray-500">
+            <table class="text-xs mt-1 mb-2">
+                <tr>
+                    <td><strong>Date Joined</strong></td>
+                    <td>:</td>
+                    <td>{{ request.user.date_joined }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Last Login</strong></td>
+                    <td>:</td>
+                    <td>{{ request.user.last_login }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Is Staff</strong></td>
+                    <td>:</td>
+                    <td>{{ request.user.is_staff }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Is Superuser</strong></td>
+                    <td>:</td>
+                    <td>{{ request.user.is_superuser }}</td>
+                </tr>
+            </table>
+            <div>
+                You are seeing this because the current template is extending base.html without overwriting the main
+                block.
+            </div>
+            <div>
+                To stop seeing this, add your own main block in the template.
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 my-8">
+        {% for _ in "x"|rjust:50 %}
+            <div class="bg-white p-10 p-6 rounded drop-shadow">
+                <div class="text-xl font-medium">This is Card {{ forloop.counter }}</div>
+                <hr class="mt-1 mb-2 border-gray-300">
+                <div class="text-xs text-gray-500">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A culpa deserunt itaque laudantium officia
+                    officiis quos temporibus, totam ut vel! At dicta eveniet iure, minus natus quod suscipit temporibus
+                    voluptatem.
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
